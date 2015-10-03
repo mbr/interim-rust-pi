@@ -1,3 +1,6 @@
 [submodule "tools"]
 	path = tools
 	url = git@github.com:raspberrypi/tools
+[submodule "rust"]
+	path = rust
+	url = http://github.com/rust-lang/rust.git
