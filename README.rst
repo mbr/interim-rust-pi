@@ -39,6 +39,47 @@ SHA256 sums
     9587895f8542b7d212d896a128e844d7cc33c61e4257d2d9ecc4610a13206b44  pi-tools_1.deb
 
 
+Built for Debian Jessie
+=======================
+
+Currently, there is Rust 1.1.0 in stable debian (jessie), while as of this
+writing, 1.3.0 is available in sid. The packaged versions of this little hack
+are 1.1.0 as well, to keep in line with the debian packaging.
+
+Both ``.deb`` packages contain no scripts that are run on install, they merely
+extract content into ``/opt/pi-tools`` and a single symlink
+``/usr/bin/pi-cargo``.
+
+The ``pi-tools``-package contains the necessary `Raspberri Pi cross-compiling
+toolchains <https://github.com/raspberrypi/tools>`_, these are not only
+required to compile the Rust compiler, but also a dependency for building rust
+programs later on (specifically, the linker and ``ar``). For this reason they
+need to be installed even if there's no intention of building Rust itself from
+source.
+
+A better way to install these on a system would be the actual cross-compilation
+support provided by debian
+(see https://wiki.debian.org/MultiarchCrossToolchainBuild), however these are
+not entirely stable yet and I had issues trying to get them to install. This
+whole project is just a stopgap measure, until these tools mature a little
+more.
+
+Rust itself
+~~~~~~~~~~~
+
+The cross-compilation support in Rust is also improving quite fast, but not
+100% there yet (there being a golang-level of toolchain goodness). Hopefully,
+this project here will become obsolete in the future.
+
+None of the packages provided here are even trying to fit into good debian
+packaging guidelines; their sole purpose is to make it easy to get rid of them
+if you can and work in the meantime.
+
+Finally, debian does not provide Cargo packages; for this reason a nightly from
+the Ubuntu ppa was chosen and, for convenience, mirrored on this repo as well:
+
+https://github.com/mbr/interim-rust-pi/releases/download/v1/cargo-nightly_201506280409.a34e69b.trusty_amd64.deb
+
 
 Sources
 =======
