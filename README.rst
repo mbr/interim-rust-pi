@@ -6,9 +6,9 @@ to
 use:
 
 1. Use dpkg to install `pi-tools_1.deb
-   <https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools_1.deb>`_
-   and `pi-tools-rust_1.1.0-1.deb
-   <https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb>`_.
+   <https://github.com/mbr/interim-rust-pi/releases/download/v2/pi-tools_1.deb>`_
+   and `pi-tools-rust_1.3.0-1.deb
+   <https://github.com/mbr/interim-rust-pi/releases/download/v2/pi-tools-rust_1.3.0-1.deb>`_.
 2. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
@@ -34,18 +34,18 @@ SHA256 sums
 ~~~~~~~~~~~
 .. code-block:: text
 
-    5ea2ed13370d0df76754200515b21d6759cae8f9a79ed4a3df4c4a08b04ce197  cargo-nightly_201506280409~a34e69b~trusty_amd64.deb
-    287a57d0fec9cdafd6e89dc7499ee275094eda5f9810d2016c3e892c7b9154de  pi-tools-rust_1.1.0-1.deb
-    9587895f8542b7d212d896a128e844d7cc33c61e4257d2d9ecc4610a13206b44  pi-tools_1.deb
+    FIXME
 
 
 Built for Debian Jessie
 =======================
 
 Currently, there is Rust 1.3.0 is available in sid, without a jessie backport.
-Increased libc version requirements make it rather hard to install the package
-from sid. At this point, trusting the rust install.sh script seems to be the
-best option, unfortunately.
+Increased libc version requirements in sid make it rather hard to install the
+package without proper backports. Building these backports is also nontrivial,
+as some of the build-dependencies set are not available in jessie in the
+correct versions. At this point, Rust's ``install.sh`` script seems to be the
+lesser evil.
 
 Both ``.deb`` packages contain no scripts that are run on install, they merely
 extract content into ``/opt/pi-tools`` and a single symlink
@@ -74,12 +74,7 @@ this project here will become obsolete in the future.
 
 None of the packages provided here are even trying to fit into good debian
 packaging guidelines; their sole purpose is to make it easy to get rid of them
-if you can and work in the meantime.
-
-Finally, debian does not provide Cargo packages; for this reason a nightly from
-the Ubuntu ppa was chosen and, for convenience, mirrored on this repo as well:
-
-https://github.com/mbr/interim-rust-pi/releases/download/v1/cargo-nightly_201506280409.a34e69b.trusty_amd64.deb
+if you can and just work in the meantime.
 
 
 Sources
