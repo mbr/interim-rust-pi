@@ -5,9 +5,10 @@ Rust on Raspberry Pi
 to
 use:
 
-1. Use dpkg to install ``pi-tools_1.deb``
-(https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools_1.deb)
-2. Use dpkg to install ``pi-tools-rust_1.1.0-1.deb`` (https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb)
+1. Use dpkg to install ``pi-tools_1.deb``:
+   https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools_1.deb
+2. Use dpkg to install ``pi-tools-rust_1.1.0-1.deb``:
+   https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb
 3. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
