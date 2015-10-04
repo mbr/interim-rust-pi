@@ -23,6 +23,7 @@ new_env = {}
 # for the gcc-sysroot script
 new_env['SYSROOT'] = ('/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/'
                       'arm-bcm2708hardfp-linux-gnueabi/sysroot')
+new_env['SYSROOT_CC'] = 'arm-linux-gnueabihf-gcc'
 
 # stdlibs
 new_env['LD_LIBRARY_PATH'] = prefix_path('LD_LIBRARY_PATH',
