@@ -1,0 +1,23 @@
+#!/bin/sh
+
+TOOLS_DIR=/opt/pi-tools/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
+RUST_DIR=/opt/pi-tools/rust
+
+# for the gcc-sysroot script
+export SYSROOT=/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot
+
+# stdlibs
+export LD_LIBRARY_PATH="${RUST_DIR}/lib:${LD_LIBRARY_PATH}"
+
+# setup path
+export PATH="${RUST_DIR}/bin:${TOOLS}/bin:${PATH}"
+
+# setup compiler and archiver
+export CC="${TOOLS_DIR}/bin/gcc-sysroot"
+export AR="arm-linux-gnueabihf-ar"
+
+which $AR
+echo $CC
+
+$AR
+$CC
