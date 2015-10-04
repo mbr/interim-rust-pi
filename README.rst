@@ -7,9 +7,9 @@ use:
 
 1. Use dpkg to install `pi-tools_1.deb
    <https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools_1.deb>`_
-2. Use dpkg to install `pi-tools-rust_1.1.0-1.deb
-   <https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb>`_
-3. Add the following to ``~/.cargo/config``:
+   and `pi-tools-rust_1.1.0-1.deb
+   <https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb>`_.
+2. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
 
@@ -17,7 +17,7 @@ use:
    ar = "arm-linux-gnueabihf-gcc-ar"
    linker = "gcc-sysroot"
 
-4. Test it:
+3. Test it:
 
 .. code-block:: shell
 
