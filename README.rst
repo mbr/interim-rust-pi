@@ -5,8 +5,9 @@ Rust on Raspberry Pi
 to
 use:
 
-1. Use dpkg to install ``pi-tools_1.deb``.
-2. Use dpkg to install ``pi-tools-rust_1.1.0-1.deb``.
+1. Use dpkg to install ``pi-tools_1.deb``
+(https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools_1.deb)
+2. Use dpkg to install ``pi-tools-rust_1.1.0-1.deb`` (https://github.com/mbr/interim-rust-pi/releases/download/v1/pi-tools-rust_1.1.0-1.deb)
 3. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
@@ -27,6 +28,14 @@ use:
    target/arm-unknown-linux-gnueabihf/debug/hellopi: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 3.1.9, BuildID[sha1]=693739227d38cfacb8a45a49b615c375ced88a35, not stripped
 
 You can still run ``cargo build``/``run`` normally to build the amd64 version.
+
+SHA256 sums
+~~~~~~~~~~~
+.. code-block:: text
+
+    5ea2ed13370d0df76754200515b21d6759cae8f9a79ed4a3df4c4a08b04ce197  cargo-nightly_201506280409~a34e69b~trusty_amd64.deb
+    287a57d0fec9cdafd6e89dc7499ee275094eda5f9810d2016c3e892c7b9154de  pi-tools-rust_1.1.0-1.deb
+    9587895f8542b7d212d896a128e844d7cc33c61e4257d2d9ecc4610a13206b44  pi-tools_1.deb
 
 
 
