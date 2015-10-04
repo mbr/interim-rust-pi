@@ -34,7 +34,9 @@ SHA256 sums
 ~~~~~~~~~~~
 .. code-block:: text
 
-    FIXME
+    ff08331107fb449f47ad63cebeffbdd36a6942bbdd90e9d29f1ac18b3a8ca784  pi-tools-rust_1.3.0-1.deb
+    9587895f8542b7d212d896a128e844d7cc33c61e4257d2d9ecc4610a13206b44  pi-tools_1.deb
+
 
 
 Built for Debian Jessie
