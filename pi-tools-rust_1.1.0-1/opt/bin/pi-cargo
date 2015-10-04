@@ -1,23 +1,57 @@
-#!/bin/sh
+#!/usr/bin/python
 
-TOOLS_DIR=/opt/pi-tools/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
-RUST_DIR=/opt/pi-tools/rust
+import os
+import sys
+
+
+def prefix_path(varname, *paths):
+    p = os.environ.get(varname, None)
+
+    nps = os.pathsep.join(paths)
+
+    if p is not None:
+        return nps + os.pathsep + p
+
+    return nps
+
+
+TOOLS_DIR = '/opt/pi-tools/gcc-linaro-arm-linux-gnueabihf-raspbian-x64'
+RUST_DIR = '/opt/pi-tools/rust'
+
+new_env = {}
 
 # for the gcc-sysroot script
-export SYSROOT=/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot
+new_env['SYSROOT'] = ('/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/'
+                      'arm-bcm2708hardfp-linux-gnueabi/sysroot')
 
 # stdlibs
-export LD_LIBRARY_PATH="${RUST_DIR}/lib:${LD_LIBRARY_PATH}"
+new_env['LD_LIBRARY_PATH'] = prefix_path('LD_LIBRARY_PATH',
+                                         os.path.join(RUST_DIR, 'lib'))
 
 # setup path
-export PATH="${RUST_DIR}/bin:${TOOLS}/bin:${PATH}"
+new_env['PATH'] = prefix_path(
+    'PATH', '/opt/pi-tools/bin', os.path.join(RUST_DIR, 'bin'),
+    os.path.join(TOOLS_DIR, 'bin'), )
 
 # setup compiler and archiver
-export CC="${TOOLS_DIR}/bin/gcc-sysroot"
-export AR="arm-linux-gnueabihf-ar"
+new_env['CC'] = 'gcc-sysroot'
+new_env['AR'] = 'arm-linux-gnueabihf-ar'
 
-which $AR
-echo $CC
+# parse cargo args, apply --target only to those that support it
+for arg in sys.argv[1:]:
+    if not arg.startswith('-'):
+        cmd = arg
+        break
+else:
+    cmd = None
 
-$AR
-$CC
+args = ['cargo'] + sys.argv[1:]
+
+if cmd in ('bench', 'build', 'clean', 'doc', 'run', 'test'):
+    args.append('--target=arm-unknown-linux-gnueabihf')
+
+# execute cargo
+env = os.environ.copy()
+env.update(new_env)
+
+os.execvpe(args[0], args, env)
