@@ -10,6 +10,7 @@ use:
 3. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
+
    [target.arm-unknown-linux-gnueabihf]
    ar = "arm-linux-gnueabihf-gcc-ar"
    linker = "gcc-sysroot"
