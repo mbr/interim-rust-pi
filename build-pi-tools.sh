@@ -10,4 +10,4 @@ CCDEST=${BUILDDIR}/opt/pi-tools/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
 mkdir -p $(dirname ${CCDEST})
 cp -r ${TOOLSDIR}/gcc-linaro-arm-linux-gnueabihf-raspbian-x64 ${CCDEST}
 chmod -R a+rX ${BUILDDIR}
-fakeroot dpkg-deb --build pi-tools_1
+fakeroot dpkg-deb --build $(basename ${BUILDDIR})
