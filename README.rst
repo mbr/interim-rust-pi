@@ -16,6 +16,8 @@ use:
 
 4. Test it:
 
+.. code-block:: shell
+
    $ cargo new --bin hello-pi
    $ cd hello-pi
    $ pi-cargo build
