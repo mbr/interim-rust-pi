@@ -13,4 +13,5 @@ rm -rf ${CCDEST} ${SRDEST}
 cp -r ${TOOLSDIR}/gcc-linaro-arm-linux-gnueabihf-raspbian-x64 ${CCDEST}
 cp -r ${TOOLSDIR}/arm-bcm2708hardfp-linux-gnueabi ${SRDEST}
 chmod -R a+rX ${BUILDDIR}
+chmod -R a+rx ${BUILDDIR}/opt/pi-tools/bin
 fakeroot dpkg-deb --build $(basename ${BUILDDIR})
