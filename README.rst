@@ -42,9 +42,10 @@ SHA256 sums
 Built for Debian Jessie
 =======================
 
-Currently, there is Rust 1.1.0 in stable debian (jessie), while as of this
-writing, 1.3.0 is available in sid. The packaged versions of this little hack
-are 1.1.0 as well, to keep in line with the debian packaging.
+Currently, there is Rust 1.3.0 is available in sid, without a jessie backport.
+Increased libc version requirements make it rather hard to install the package
+from sid. At this point, trusting the rust install.sh script seems to be the
+best option, unfortunately.
 
 Both ``.deb`` packages contain no scripts that are run on install, they merely
 extract content into ``/opt/pi-tools`` and a single symlink
