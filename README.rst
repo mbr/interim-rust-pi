@@ -1,8 +1,38 @@
 Rust on Raspberry Pi
 ====================
 
-tl;dr: Cross-compiling for Raspberry Pi / ARM is a little complicated. Here are
-some debian jessie packages to make it easy:
+**tl;dr**: Cross-compiling for Raspberry Pi / ARM is a little complicated. How
+to
+use:
+
+1. Use dpkg to install ``pi-tools_1.deb``.
+2. Use dpkg to install ``pi-tools-rust_1.1.0-1.deb``.
+3. Add the following to ``~/.cargo/config``:
+
+.. code-block:: ini
+   [target.arm-unknown-linux-gnueabihf]
+   ar = "arm-linux-gnueabihf-gcc-ar"
+   linker = "gcc-sysroot"
+
+4. Test it:
+
+   $ cargo new --bin hello-pi
+   $ cd hello-pi
+   $ pi-cargo build
+   Compiling hellopi v0.1.0 (file:///tmp/hellopi)
+   $ file target/arm-unknown-linux-gnueabihf/debug/hellopi
+   target/arm-unknown-linux-gnueabihf/debug/hellopi: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 3.1.9, BuildID[sha1]=693739227d38cfacb8a45a49b615c375ced88a35, not stripped
+
+You can still run ``cargo build``/``run`` normally to build the amd64 version.
+
+
+
+Sources
+=======
+
+All information on how things are done was taken from
+https://github.com/Ogeon/rust-on-raspberry-pi, although I've made some
+adjustments to the process.
 
 
 Building from scratch
