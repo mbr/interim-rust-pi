@@ -2,5 +2,5 @@ Package: pi-tools-rust
 Architecture: amd64
 Maintainer: Marc Brinkmann <git@marcbrinkmann.de>
 Priority: optional
-Version: 1.3.0-1
+Version: 1.8.0-1~3c9442f
 Description: Interim rustc.
