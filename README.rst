@@ -31,6 +31,35 @@ use:
 You can still run ``cargo build``/``run`` normally to build the amd64 version.
 
 
+Handling C-dependencies
+-----------------------
+
+When dealing with crates that are not pure Rust packages the missing
+dependencies can be installed using the ``pi-tools-install`` script. Assuming a
+hyper build fails because of OpenSSL:
+
+.. code-block:: text
+
+    src/openssl_shim.c:1:26: fatal error: openssl/hmac.h: No such file or directory
+     #include <openssl/hmac.h>
+
+The required debian packages are ``libssl-dev`` and ``libssl1.0.0``:
+
+.. code-block:: shell
+
+    $ sudo pi-tools-install libssl-dev libssl1.0.0
+    Downloading libssl-dev:armhf using apt-get...
+    Get:1 http://http.debian.net/debian/ jessie/main libssl-dev armhf 1.0.1k-3+deb8u2 [1,105 kB]
+    Fetched 1,105 kB in 0s (1,806 kB/s)
+    Extracting to /opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot/
+
+    [...]
+
+Files will only be extracted
+into
+``/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot/``
+
+
 Built for Debian Jessie
 =======================
 
