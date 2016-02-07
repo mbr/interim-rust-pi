@@ -6,9 +6,9 @@ to
 use:
 
 1. Use dpkg to install `pi-tools_1.deb
-   <https://github.com/mbr/interim-rust-pi/releases/download/v2/pi-tools_1.deb>`_
+   <https://github.com/mbr/interim-rust-pi/releases/download/v3/pi-tools_2.deb>`_
    and `pi-tools-rust_1.8.0-1.3c9442f.deb
-   <https://github.com/mbr/interim-rust-pi/releases/download/1.8.0-1_3c9442f/pi-tools-rust_1.8.0-1.3c9442f.deb>`_.
+   <https://github.com/mbr/interim-rust-pi/releases/download/v3/pi-tools-rust_1.8.0-1.3c9442f.deb>`_.
 2. Add the following to ``~/.cargo/config``:
 
 .. code-block:: ini
