@@ -59,6 +59,17 @@ Files will only be extracted
 into
 ``/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot/``
 
+For this to work, your system must be setup to support foreign archs,
+otherweise apt will not be able to download ``:armhf`` packages:
+
+
+.. code-block:: shell
+
+   $ sudo dpkg --add-architecture armhf
+   $ sudo apt-get update
+
+More details can be found at https://wiki.debian.org/Multiarch/HOWTO
+
 
 Built for Debian Jessie
 =======================
