@@ -22,7 +22,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('packages', nargs='+')
 parser.add_argument('--arch', default='armhf')
 parser.add_argument('--sysroot',
-                    default='/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/')
+                    default=('/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi/'
+                             'arm-bcm2708hardfp-linux-gnueabi/sysroot/'))
 
 if __name__ == '__main__':
     args = parser.parse_args()
