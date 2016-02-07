@@ -3,7 +3,7 @@
 set -e
 set -x
 
-BUILDDIR=pi-tools_1
+BUILDDIR=pi-tools_2
 TOOLSDIR=tools/arm-bcm2708
 CCDEST=${BUILDDIR}/opt/pi-tools/gcc-linaro-arm-linux-gnueabihf-raspbian-x64
 SRDEST=${BUILDDIR}/opt/pi-tools/arm-bcm2708hardfp-linux-gnueabi

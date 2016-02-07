@@ -2,5 +2,5 @@ Package: pi-tools
 Architecture: amd64
 Maintainer: Marc Brinkmann <git@marcbrinkmann.de>
 Priority: optional
-Version: 1
+Version: 2
 Description: Interim package until cross compilation in jessie is a bit easier.
