@@ -33,4 +33,4 @@ Gotchas
 * Having `CC` and other environment variables set will override when compiler
   selected by Cargo for the target tuple. Ensure that these are not set.
 * The outdated, but still working packages and everything else are available
-  in [older commits](https://github.com/mbr/interim-rust-pi/tree/last-relevant)
+  in [older commits](https://github.com/mbr/interim-rust-pi/tree/last-relevant).
